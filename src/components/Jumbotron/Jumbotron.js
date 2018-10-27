@@ -1,8 +1,9 @@
 import React from "react";
 import "./Jumbotron.css";
 
-const Jumbotron = () => (
+const Jumbotron = props => (
   <div className="jumbotron text-center">
+    <h1>Score: {props.score}</h1>
   </div>
 );
 

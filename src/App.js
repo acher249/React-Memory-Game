@@ -13,6 +13,7 @@ class App extends Component {
   state = {
     friends,
     clickedFriendsArray: [],
+    score: 0
   };
 
   //passing in the id of the clicked element
@@ -26,6 +27,8 @@ class App extends Component {
     if(this.state.clickedFriendsArray.length == 0){
       arr.push(id);
       this.setState({ clickedFriendsArray: arr });
+      this.setState({ score: this.state.score + 1 });
+
       // console.log(this.state.clickedFriendsArray);
     }
     else
@@ -35,9 +38,13 @@ class App extends Component {
         console.log("id not in array..need to push into array.");
         arr.push(id);
         this.setState({ clickedFriendsArray: arr });
+        this.setState({ score: this.state.score + 1 });
       }else{
         console.log("id already exists in array.. YOU LOSE");
-
+        this.setState({ score: 0});
+        alert("YOU LOSE");
+        // after you lose reset the game
+        window.location.reload(true);
       }
     }
   };
@@ -48,7 +55,9 @@ class App extends Component {
     return (
       <div>
         <Nav />
-        <Jumbotron />
+        <Jumbotron 
+        score={this.state.score}
+        />
         <Container>
           <Row>
             <Col size="lg-2"></Col>
