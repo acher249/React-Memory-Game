@@ -19,10 +19,7 @@ class App extends Component {
   NewFriendClick = id => {
 
     // add friend id into array, check to make sure the clicked friend is not already in the array.
-    // how to make this array global? put it as a variable in the state
-    // console.log("clicked");
 
-    // this.state.clickedFriendsArray.filter(el => 
     // copy - "spread operator"
     let arr = [...this.state.clickedFriendsArray];
 
@@ -43,21 +40,7 @@ class App extends Component {
 
       }
     }
-
-
-    // Set this.state.friends equal to the new friends array
-    // this.setState(
-    //   { friends, 
-    //   clickedFriendsArray: this.state.clickedFriendsArray 
-    // });
   };
-
-  // removeFriend = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   const friends = this.state.friends.filter(friend => friend.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ friends });
-  // };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
