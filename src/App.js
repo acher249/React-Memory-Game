@@ -30,6 +30,7 @@ class App extends Component {
       arr.push(id);
       this.setState({ clickedFriendsArray: arr });
       // console.log(this.state.clickedFriendsArray);
+      //comment
     }
     else
     {
