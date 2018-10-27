@@ -19,42 +19,37 @@ class App extends Component {
   NewFriendClick = id => {
 
     // add friend id into array, check to make sure the clicked friend is not already in the array.
-    // how to make this array global?
-    console.log("we clicked a thing and are in the function now");
+    // how to make this array global? put it as a variable in the state
+    // console.log("clicked");
+
+    // this.state.clickedFriendsArray.filter(el => 
+    // copy - "spread operator"
+    let arr = [...this.state.clickedFriendsArray];
 
     if(this.state.clickedFriendsArray.length == 0){
-      this.state.clickedFriendsArray.push(id);
+      arr.push(id);
+      this.setState({ clickedFriendsArray: arr });
+      // console.log(this.state.clickedFriendsArray);
     }
     else
     {
-      // need to make sure that we only push it once and then stop the for loop
-      let pushed = false;
+      // if the id is not in the array = -1
+      if(arr.indexOf(id) === -1){
+        console.log("id not in array..need to push into array.");
+        arr.push(id);
+        this.setState({ clickedFriendsArray: arr });
+      }else{
+        console.log("id already exists in array.. YOU LOSE");
 
-      for (let i = 0; i < this.state.clickedFriendsArray.length && !pushed; i++) {
-        // console.log(this.state.clickedFriendsArray[i], id);
-
-        if (this.state.clickedFriendsArray[i] != id){
-  
-          console.log("we are in the if", id);
-  
-          this.state.clickedFriendsArray.push(id);
-          pushed = true;
-        }
-        else
-        {
-          console.log("you lose");
-          // you lose
-        }
-  
       }
     }
 
 
     // Set this.state.friends equal to the new friends array
-    this.setState(
-      { friends, 
-      clickedFriendsArray: this.state.clickedFriendsArray 
-    });
+    // this.setState(
+    //   { friends, 
+    //   clickedFriendsArray: this.state.clickedFriendsArray 
+    // });
   };
 
   // removeFriend = id => {
